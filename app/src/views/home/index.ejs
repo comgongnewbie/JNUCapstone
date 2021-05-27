@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>JAM : 제주대 활동관리 사이트 > 로그인</title>
+    <style>
+      body{
+      background-color:aliceblue;
+    }
+      h1{
+        font-size:20px;
+        text-align:left;
+        border-bottom:1px solid black;
+        margin:10px;
+        padding:20px;
+      }
+
+      input[type="text"] {
+          color: black;
+          border: 3px solid black;
+          font-size: 20px;
+          padding:20px;
+          margin:20px;
+          display:block;
+        /*  font-family: mybit;*/
+      }
+      input[type="password"] {
+          color: black;
+          border: 3px solid black;
+          font-size: 20px;
+          padding:20px;
+          margin:20px;
+          display:block;
+        /*  font-family: mybit;*/
+      }
+      #button {
+          color: black;
+          border: 3px solid black;
+          font-size: 17px;
+          padding:18px 215px 18px 215px;
+          margin:20px;
+          display:block;
+          background-color: white;
+          cursor:pointer;
+      }
+      
+      body {
+        margin:0;
+      }
+
+    </style>
+    <script src="/js/home/login.js" defer></script>
+  </head>
+  <body>
+    <h1>JNU</h1>
+    <form action = "/login" method = "POST">
+    <table class="로그인테이블" align="center">
+
+        <tr><td><input id = "id" type="text" size="40"  name="id" placeholder="아이디" required /></td></tr>
+        <br>
+        <tr><td><input id = "password" type="password" size="40"  name="password" placeholder="비밀번호" required /></td></tr>
+        <br>
+        </table>
+        <table class="" align="center">
+        <tr><td><p id="button">로그인</p id="button"></td></tr>
+        </table>
+        <br>
+        <p style="font-size:15px; text-align:center;">아이디가 없으신가요?
+        <a href="/signup">  회원가입</a>
+      </p><br>
+
+
+
+        <p style="font-size:15px; text-align:center;"">비회원으로 진행하시겠습니다까?
+        <a href="/notice">  비회원</a>
+      </p>
+      </form>
+      <%-include('footer')%>
+  </body>
+</html>

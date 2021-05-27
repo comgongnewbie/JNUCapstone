@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>JAM : 제주대 활동관리 사이트 > 공지사항</title>
+  </head>
+  <style>
+    body{
+      background-color: aliceblue;
+    }
+    .header{
+      font-size:2em;
+      font-weight: bolder;
+      padding:20px;
+      margin:20px;
+      text-align: left;
+      display:block;
+      border-bottom:1px solid black;
+    }
+    .tab{
+      font-size: 13px;
+      border-radius:20%;
+      border:3px solid black;
+      padding:7px;
+      margin:20px;
+      float: right;
+      text-align: right;
+      display:inline;
+    }
+    a{
+      text-decoration:none;
+      color:black;
+    }
+    button[type="button"] {
+        font-size: 25px;
+        border:2px solid black;
+        padding:10px;
+        margin:40px;
+        background-color: white;
+        border-radius:10%;
+        float: center;
+        text-align: center;
+        cursor:pointer;
+        height:140px;
+        width:180px;
+    }
+    .category{
+      display:flex;
+      justify-content:center;
+    }
+    .category>a :hover{
+      background-color:gainsboro;
+    }
+    </style>
+  <body>
+    <%-include('header')%>
+<br>
+    <div class="category">
+    <a href="/notice_list?category=SW"><button  type="button" float="left">SW</button></a>
+    <a href="/notice_list?category=Language"><button type="button">어학</button></a>
+    <a href="/notice_list?category=Social"><button  type="button">인문사회학</button></a><br>
+    </div>
+    <div class="category">
+    <a href="/notice_list?category=Job"><button  type="button">취업</button></a>
+    <a href="/notice_list?category=Startup"><button  type="button">창업</button></a>
+    <a href="/notice_list?category=Supporters"><button  type="button">서포터즈</button></a><br>
+    </div>
+    <div class="category">
+    <a href="/notice_list?category=Competition"><button  type="button">공모전</button></a>
+    <a href="/notice_list?category=Scholarship"><button   type="button">장학금</button></a>
+    <a href="/notice_list?category=Volunteer"><button   type="button">봉사활동</button></a>
+    <a href="/notice_list?category=etc"><button  type="button">기타</button></a>
+    </div>
+    <%-include('footer')%>
+  </body>
+</html>

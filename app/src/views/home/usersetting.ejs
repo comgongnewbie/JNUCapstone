@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>JAM : 제주대 활동관리 사이트 > 팀원모집</title>
+    <style>
+      body{
+      background-color: aliceblue;
+    }
+      h1{
+        font-size:20px;
+        text-align:left;
+        border-bottom:1px solid black;
+        margin:10px;
+        padding:20px;
+      }
+
+      input[type="text"] {
+          color: black;
+          border: 3px solid black;
+          font-size: 20px;
+          padding:20px;
+          margin:20px;
+          display:block;
+        /*  font-family: mybit;*/
+      }
+      button[type="submit"] {
+          color: black;
+          border: 3px solid black;
+          font-size: 17px;
+          padding:18px 190px 18px 190px;
+          margin:20px;
+          display:block;
+          background-color: white;
+          cursor:pointer;
+      }
+      body {
+        margin:0;
+      }
+
+    </style>
+  </head>
+  <body>
+    <h1><a href="/notice">JNU</a></h1>
+    <form>
+    <table class="회원수정테이블" align="center">
+
+        <tr><td><input type="text" size="40"  name="id" placeholder="아이디" required /></td></tr>
+        <br>
+        <tr><td><input type="text" size="40"  name="password" placeholder="비밀번호" required /></td></tr>
+        <br>
+        <tr><td><input type="text" size="40"  name="username" placeholder="닉네임" required /></td></tr>
+        <br>
+        </table>
+
+        <p style="font-size:15px; text-align:center;"">관심분야 선택해 알림받기 (선택)
+      </p>
+      <br>
+      <p>
+      <table class="관심분야테이블" align="center">
+        <tr>
+          <td><input type="checkbox" value="SW">SW</td>
+          <td><input type="checkbox" value="공모전">공모전</td>
+          <td><input type="checkbox" value="어학">어학</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" value="봉사활동">봉사활동</td>
+          <td><input type="checkbox" value="인문사회">인문사회</td>
+          <td><input type="checkbox" value="장학금">장학금</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" value="취업">취업</td>
+          <td><input type="checkbox" value="창업">창업</td>
+          <td><input type="checkbox" value="서포터즈">서포터즈</td>
+        </tr>
+
+        </table>
+        </p>
+        <table class="정보수정테이블" align="center">
+        <tr><td><button type="submit" value="정보수정하기" >정보수정하기</button></td></tr>
+        </table>
+        </form>
+        <%-include('footer')%>
+  </body>
+</html>

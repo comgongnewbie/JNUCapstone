@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>JAM : 제주대 활동관리 사이트 > 공지사항</title>
+    <style>
+      body{
+      background-color:aliceblue;
+    }
+      .header{
+        font-size:2em;
+        font-weight: bolder;
+        padding:20px;
+        margin:20px;
+        text-align: left;
+        display:block;
+        border-bottom:1px solid black;
+      }
+      .tab{
+        font-size: 13px;
+        border-radius:20%;
+        border:3px solid black;
+        padding:7px;
+        margin:20px;
+        float: right;
+        text-align: right;
+        display:inline;
+      }
+      a{
+        text-decoration:none;
+        color:black;
+      }
+      .category{
+        display: flex;
+        justify-content: center;
+      }
+    .notice_content_table{
+      border-spacing: 0;
+      text-align: center;
+      width:1300px;
+    }
+    .team_board_table{
+      border-spacing:0;
+      text-align: center;
+      width:1300px;
+    }
+    .category button[type="button"] {
+        font-size: 17px;
+        border:2px solid black;
+        padding:10px;
+        margin:1px;
+        background-color: white;
+        float: center;
+        text-align: center;
+        cursor:pointer;
+        height:100px;
+        width:130px;
+    }
+    .team_buildingboard{
+      font-style:border;
+      padding:10px;
+      position: relative;
+      left:-500px;
+    }
+    .team_board{
+      padding:7px;
+      padding-left:1120px;
+    }
+    #button2{
+      font-size: 13px;
+      font-weight: bolder;
+      border-radius:30%;
+      border:3px solid black;
+      padding: 7px;
+      width:60px;
+      background-color:white;
+      cursor:pointer;
+      position: relative;
+      left:500px;
+    }
+      body {
+        margin:0;
+      }
+      .category>a :hover{
+      background-color:yellow;
+    }
+    #teamclick:hover{
+      color: deeppink;
+    }
+    </style>
+  </head>
+  <body>
+    <%-include('header')%>
+    <div class="category">
+      <a href="/notice_list?category=SW"><button type="button">SW</button></a>
+      <a href="/notice_list?category=Language"><button type="button">어학</button></a>
+      <a href="/notice_list?category=Social"><button type="button">인문사회학</button></a><br>
+      <a href="/notice_list?category=Job"><button type="button">취업</button></a>
+      <a href="/notice_list?category=Startup"><button type="button">창업</button></a>
+      <a href="/notice_list?category=Supporters"><button type="button">서포터즈</button></a><br>
+      <a href="/notice_list?category=Competition"><button type="button">공모전</button></a>
+      <a href="/notice_list?category=Scholarship"><button type="button">장학금</button></a>
+      <a href="/notice_list?category=Volunteer"><button type="button">봉사활동</button></a>
+      <a href="/notice_list?category=etc"><button type="button">기타</button></a>
+    </div>
+    <br><br>
+<div>
+    <table class="notice_content_table" align="center" border=1">
+      <tr  height = "50"><td>제목
+        <td colspan="7" style="font-size: 25px; text-align: left;"><%=notice_content[0].title%></td></tr>
+      <tr>
+        <td>분야</td>
+        <td><%=category%></td>
+        <td style="width: 60px;">작성자</td>
+        <td><%=notice_content[0].writer%></td>
+        <td style="width: 60px;">작성일</td>
+        <td style="width: 200px;"><%=notice_content[0].write_date%></td>
+        <td style="width: 60px;">조회수</td>
+        <td style="width: 70px;"><%=notice_content[0].views%></td></tr>
+      <tr height = "700"  ><td colspan="6" style="text-align: left; vertical-align: top;   border-top: 2rem solid;
+        border-left: 2rem solid;
+        border-right: 2rem solid;
+        border-bottom: 2rem solid;
+        border-color: transparent;"><%=notice_content[0].content%></td></tr></table></div>
+      <div class="notice_content">
+
+<br>
+      <div style="text-align: center;">
+      <span class="team_buildingboard">팀빌딩 게시판 : <small>게시물 <strong style="font-size:20px"><%=team_list.length%></strong> 개</small></span>
+      <a href="/team_write?category=<%=category%>&num=<%=notice_content[0].num%>"><button id="button2">글쓰기</button></a>
+      </div>
+      <table class="team_board_table" align="center" border=1px>
+      <% for(var i=0; i<team_list.length; i++) {%>
+      <tr><td width="55%"><a id ="teamclick" href="/team_list/content?num=<%=team_list[i].num%>"><%=team_list[i].title%></a></td>
+        <td style="width: 60px;">작성자</td>
+        <td><%=team_list[i].writer%></td>
+        <td style="width: 200px;"><%=team_list[i].write_date%></td>
+        <td style="width: 60px;">조회수</td>
+        <td style="width: 70px;"><%=team_list[i].views%></td>
+        </tr>
+        </div>
+        <% } %>
+      </table>
+      </div>
+      <%-include('footer')%>
+  </body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>JAM : 제주대 활동관리 사이트 > 팀원모집</title>
+  </head>
+  <style>
+    body{
+      background-color:aliceblue;
+    }
+    .header{
+      font-size:2em;
+      font-weight: bolder;
+      padding:20px;
+      margin:20px;
+      text-align: left;
+      display:block;
+      border-bottom:1px solid black;
+    }
+    .tab{
+      font-size: 13px;
+      border-radius:20%;
+      border:3px solid black;
+      padding:7px;
+      margin:20px;
+      float: right;
+      text-align: right;
+      display:inline;
+    }
+    a{
+      text-decoration:none;
+      color:black;
+    }
+    #person{
+      margin:10px 10px 10px 30px;
+    }
+    #void{
+      border:white;
+      margin:10px;
+      margin-left:350px;
+      display:inline-block;
+    }
+    button[type="button"] {
+        color: black;
+        border: 1px solid black;
+        border-radius:20%;
+        font-size: 15px;
+        padding:5px 10px 5px 10px;
+        margin:10px;
+        display:inline-block;
+        background-color: rgb(200, 200, 200);
+        cursor:pointer;
+    }
+    .box{
+      border:1px solid black;
+      border-radius:20%;
+      padding:10px;
+      
+      display:inline-block;
+    }
+    .team_content_title{
+      color: black;
+      border-bottom: 1px solid black;
+      font-size: 19px;
+      width: 1200px;
+      padding:10px;
+      margin:10px 0px 10px 100px;
+      display:inline-block;
+    }
+    .title input[type="text"]{
+      color: black;
+      border: 1px solid black;
+      font-size: 19px;
+      width: 1000px;
+      padding:10px;
+      margin:10px 0px 10px 100px;
+      display:inline-block;
+    }
+    .person input[type="number"] {
+      color: black;
+      border: 1px solid black;
+      font-size: 15px;
+      width: 40px;
+      height: 10px;
+      padding:10px;
+      margin:1px;
+      display:inline-block;
+      }
+    .team_comment{
+      font-size: 19px;
+      width: 1050px;
+      height: 60px;
+      padding:10px;
+      margin:0;
+      display:inline-block;
+    }
+    .team_content{
+      color:black;
+      border:1px;
+      border-top: 1px solid black;
+      font-size: 19px;
+      width: 1200px;
+      height: 700px;
+      padding:10px;
+      margin-left:auto;
+      margin-right:auto;
+      display:block;
+    }
+    .registration {
+          color: white;
+          border: 1px solid black;
+          border-radius:20%;
+          width:80px;
+          height: 80px;
+          font-size: 20px;
+          text-align: center;
+          display:inline-block;
+          background-color: rgb(100, 150, 1000);
+          cursor:pointer;
+          position: relative;
+          top:-30px;
+    }
+    .team_category  {
+      border:1px solid black;
+      border-radius:20%;
+      font-size:16px;
+      padding:10px;
+      margin:0;
+      background-color:white;
+      display:inline-block;
+    }
+    .person{
+      border:1px solid black;
+      border-radius:20%;
+      font-size:16px;
+      padding:9px 25px 9px 25px;
+      margin:0;
+      background-color:white;
+      display:inline-block;
+    }
+    #comm{
+      width: 1200px;
+    }
+    table{
+      table-layout: fixed;
+      border-bottom: 1px solid black;
+      border-collapse: collapse;
+    }
+    #form{
+      margin-top: 30px;
+    }
+    </style>
+    <script src="/js/home/comment.js" defer></script>
+  <body>
+      <%-include('header')%>
+      <br>
+      <div style="display:block; text-align: center; position: relative; left:-50px;">
+      <div class="team_content_title" style="text-align: left; font-size: 30px;"><%=team_content[0].title%></div>
+      <br>
+
+      
+      <span class="box">카테고리</span>
+      <span class="team_category">카테고리</span>
+
+      <span class="box" id="person">모집인원</span>
+      <span class="person"><%=team_content[0].peopleNum%></span>
+
+      <small style="margin-left:30px">조회수 : <%=team_content[0].views%></small> &nbsp;&nbsp;&nbsp;
+      <% if(team_content[0].notice_num.length!==0) {%>
+      <small><a style="border-bottom: 1px solid blue; color: blue;"href="<%=team_content[0].noticeLink%>">공지사항 링크</a></small>
+      <% } %>
+      <span class="box" id="void">&nbsp;</span>
+      
+
+      <span class="edit"><button type="button" name="edit"><a href="">수정</a></button></span>
+      <span class="delete"><button type="button" name="delete">삭제</button></span>
+    </div>
+      <div class="team_content"><p style="border-bottom:1px solid black; padding-bottom:200px"><%=team_content[0].content%></p>
+      <span>전체 댓글 <strong><%=team_comment.length%></strong>개</span><hr>
+      <table id="comm" border="0">
+        <% for(var i=0; i<team_comment.length; i++) { %>
+        <tr style="border-bottom: 1px solid black;">
+          <td style="text-align: center; width: 100px"><%=team_comment[i].comment_writer%></td>
+          <td style="width: 900px"><%=team_comment[i].comment_content%></td>
+          <td style="text-align: right;"><small><%=team_comment[i].comment_date%></small></td>
+          <% } %>
+        </tr>
+      </table>
+        <form id ="form"action="/comment_write" method="POST">
+        <textarea style="text-align: left;" class="team_comment" id="content" placeholder="댓글을 입력하세요."></textarea>
+        <p class="registration" id="button1"><br>등록</p>
+        </form>
+        <input id="num" type="text" style="display: none;" value="<%=team_content[0].num%>">
+      </div>
+      <%-include('footer')%>
+  </body>
+</html>

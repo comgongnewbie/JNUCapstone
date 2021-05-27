@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>JAM : 제주대 활동관리 사이트 > 회원가입</title>
+    <style>
+      body{
+      background-color:aliceblue;
+    }
+      h1{
+        font-size:2em;
+        text-align:left;
+        border-bottom:1px solid black;
+        margin:10px;
+        padding:20px;
+      }
+
+      input[type="text"] {
+          color:llllllll black;
+          border: 3px solid black;
+          font-size: 20px;
+          padding:20px;
+          margin:20px;
+          display:block;
+        /*  font-family: mybit;*/
+      }
+      input[type="password"] {
+          color:llllllll black;
+          border: 3px solid black;
+          font-size: 20px;
+          padding:20px;
+          margin:20px;
+          display:block;
+        /*  font-family: mybit;*/
+      }
+      #button {
+          color: black;
+          border: 3px solid black;
+          font-size: 17px;
+          padding:18px 190px 18px 190px;
+          margin:20px;
+          display:block;
+          background-color: white;
+          cursor:pointer;
+      }
+
+
+      body {
+        margin:0;
+      }
+
+    </style>
+    <script src="/js/home/signup.js" defer></script>
+  </head>
+  <body>
+    <h1>JNU</h1>
+    <form action="/signup" method="post">
+    <table class="회원가입테이블" align="center">
+        <tr><td><input id = "id" type="text" size="40"  name="id" placeholder="아이디" required /></td></tr>
+        <br>
+        <tr><td><input id = "password" type="password" size="40"  name="password" placeholder="비밀번호" required /></td></tr>
+        <br>
+        <tr><td><input id = "passwordcheck" type="password" size="40"  name="passwordcheck" placeholder="비밀번호 확인" required /></td></tr>
+        <br>
+
+        <br>
+        <tr><td><input id = "username" type="text" size="40"  name="username" placeholder="닉네임" required /></td></tr>
+        <tr><td><input id = "email" type="text" size="40"  name="email" placeholder="이메일"/></td></tr>
+        <tr><td><input id = "phone" type="text" size="40"  name="phone" placeholder="휴대폰 번호 (숫자만 입력)"/></td></tr>
+        <br>
+        </table>
+
+        <p style="font-size:15px; text-align:center;"">관심분야 선택해 알림받기 (선택)
+      </p>
+
+      <p>
+      <table class="관심분야테이블" align="center">
+        <tr>
+          <td><input type="checkbox" name="category" value="SW">SW</td>
+          <td><input type="checkbox" name="category"  value="Competition">공모전</td>
+          <td><input type="checkbox" name="category"  value="Language">어학</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" name="category"  value="Volunteer">봉사활동</td>
+          <td><input type="checkbox" name="category"  value="Social">인문사회</td>
+          <td><input type="checkbox" name="category"  value="Scholarship">장학금</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" name="category"  value="Job">취업</td>
+          <td><input type="checkbox" name="category"  value="Startup">창업</td>
+          <td><input type="checkbox" name="category"  value="Supporters">서포터즈</td>
+        </tr>
+        </table>
+        </p>
+
+
+        <table class="정보수정테이블" align="center">
+        <tr><td><p id = "button">회원가입하기</p id = "button"></td></tr>
+        </table>
+
+
+        <p style="font-size:15px; text-align:center;"">비회원으로 진행하시겠습니다까?
+        <a href="공지사항메인창.html">  비회원</a>
+      </p>
+      </form>
+      <%-include('footer')%>
+  </body>
+</html>

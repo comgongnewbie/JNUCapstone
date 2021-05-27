@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>JAM : 제주대 활동관리 사이트 > 공지사항</title>
+  </head>
+  <style>
+    body{
+      background-color:aliceblue;
+    }
+    .header{
+      font-size:2em;
+      font-weight: bolder;
+      padding:20px;
+      margin:20px;
+      text-align: left;
+      display:block;
+      border-bottom:1px solid black;
+    }
+    .tab{
+      font-size: 13px;
+      border-radius:20%;
+      border:3px solid black;
+      padding:7px;
+      margin:20px;
+      float: right;
+      text-align: right;
+      display:inline;
+    }
+    a{
+      text-decoration:none;
+      color:black;
+    }
+    .category button[type="button"] {
+      font-size: 17px;
+      border:2px solid black;
+      padding:10px;
+      margin:1px;
+      background-color: white;
+      float: center;
+      text-align: center;
+      cursor:pointer;
+      height:100px;
+      width:130px;
+    }
+    .notice_list{
+      display:flex;
+      justify-content: center;
+    }
+    .notice_list button[type="button"] {
+      font-size: 17px;
+      border:0;
+      border-bottom:1px solid black;
+      padding:10px;
+      margin:10px;
+      margin-left:50px;
+      background-color:white;
+      float: center;
+      text-align: left;
+      cursor:pointer;
+      height:100px;
+      width:300px;
+      display:inline;
+    }
+    .category{
+      display: flex;
+      justify-content: center;
+    }
+    .page_number{
+      display: inline-block flex;
+      position: relative;
+      min-width: 30px;
+      height: 55px;
+      margin: 0 6px;
+      font-size: 16px;
+      line-height: 55px;
+      text-align: center;
+      justify-content: center;
+      vertical-align: top;
+      text-decoration: none;
+      }
+    .search_form{
+      margin:15px 15px 25px 15px;
+      box-sizing: border-box;
+      padding:0;
+      display: block;
+      width: 100%
+      font-size:17px;
+      text-align:center;
+      margin-bottom:30px;
+      }
+    #span {
+      font-size : 10px;
+      color : gray;
+      text-align: right;
+      margin-top:-10px;
+      margin-right:12px;
+    }
+    .notice_list>a :hover{
+      background-color:lavenderblush;
+    }
+    .category>a :hover{
+      background-color:yellow;
+    }
+    .tab>a :hover{
+      background-color:gray;
+    }
+    </style>
+    <script>
+    </script>
+  <body>
+    <%-include('header')%>
+<br>
+    <div class="category">
+    <a href="/notice_list?category=SW"><button type="button">SW</button></a>
+    <a href="/notice_list?category=Language"><button type="button">어학</button></a>
+    <a href="/notice_list?category=Social"><button type="button">인문사회학</button></a><br>
+    <a href="/notice_list?category=Job"><button type="button">취업</button></a>
+    <a href="/notice_list?category=Startup"><button type="button">창업</button></a>
+    <a href="/notice_list?category=Supporters"><button type="button">서포터즈</button></a><br>
+    <a href="/notice_list?category=Competition"><button type="button">공모전</button></a>
+    <a href="/notice_list?category=Scholarship"><button type="button">장학금</button></a>
+    <a href="/notice_list?category=Volunteer"><button type="button">봉사활동</button></a>
+    <a href="/notice_list?category=etc"><button type="button">기타</button></a>
+    </div>
+
+    <br>
+    <br>
+    <br>
+
+  <div class="notice_list">
+    <% for(var i=0; i<post.length; i++) { %>
+    <a id="content" href="/notice_list/content?category=<%=category%>&num=<%=post[i].num%>"><button type="button"><strong style="font-size:19px;"><%=post[i].title%></strong></button><p id="span">작성일 : <%=post[i].write_date%>&nbsp;&nbsp;  조회수 : <%=post[i].views%></p></a>
+    <% if((i+1)%3==0) {%> </div><div class="notice_list"> <% } %>
+    <% } %>
+  </div>
+
+    <br>
+    <br>
+    <br>
+
+    <div class="page_number">
+      <a href="" onclick="" role="button" aria-pressed"true">1</a>
+      <a href="" onclick="" role="button" aria-pressed"true">2</a>
+      <a href="" onclick="" role="button" aria-pressed"true">3</a>
+      <a href="" onclick="" role="button" aria-pressed"true">4</a>
+      <a href="" onclick="" role="button" aria-pressed"true">5</a>
+      <a href="" onclick="" role="button" aria-pressed"true">6</a>
+      <a href="" onclick="" role="button" aria-pressed"true">7</a>
+      <a href="" onclick="" role="button" class="btn" aria-pressed"true">8</a>
+      <a href="" onclick="" role="button" class="btn" aria-pressed"true">9</a>
+      <a href="" onclick="" role="button" class="btn"aria-pressed"true">10</a>
+    </div>
+
+    <form class="search_form">
+      <select class="select" name="s[s]" title="검색타입">
+      <option value="SW">SW</option>
+      <option value="어학">어학</option>
+      <option value="인문사회학">인문사회학</option>
+      <option value="취업">취업</option>
+      <option value="창업">창업</option>
+      <option value="서포터즈">서포터즈</option>
+      <option value="공모전">공모전</option>
+      <option value="장학금">장학금</option>
+      <option value="봉사활동">봉사활동</option>
+      <option value="기타">기타</option>
+      </select>
+      <input type="text" class="input" name="s[q]" placeholder="검색어" title="검색어" value required>
+      <input type="submit" class="btn" value="검색">
+      </form>
+      <%-include('footer')%>
+  </body>
+</html>
