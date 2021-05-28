@@ -1,20 +1,26 @@
 {
   "name": "comgong",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "bin": {
     "comgong": "www.js"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "body-parser": "^1.19.0",
+    "cheerio": "^1.0.0-rc.9",
     "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
     "mysql": "^2.18.1",
     "mysql2": "^2.2.5",
-    "sequelize": "^6.6.2"
+    "node-cron": "^3.0.0",
+    "node-fetch": "^2.6.1",
+    "puppeteer": "^9.1.1",
+    "sequelize": "^6.6.2",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.2"
   },
   "devDependencies": {},
   "scripts": {
@@ -22,5 +28,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "jakehan",
-  "license": "MIT"
+  "license": "MIT",
+  "keywords": [],
+  "description": ""
 }
