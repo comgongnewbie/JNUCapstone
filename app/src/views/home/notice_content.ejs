@@ -87,6 +87,10 @@
     #teamclick:hover{
       color: deeppink;
     }
+    iframe{
+      width : 1200px;
+      height: 700px;
+    }
     </style>
   </head>
   <body>
@@ -121,7 +125,7 @@
         border-left: 2rem solid;
         border-right: 2rem solid;
         border-bottom: 2rem solid;
-        border-color: transparent;"><%=notice_content[0].content%></td></tr></table></div>
+        border-color: transparent;"><iframe src="<%=notice_content[0].originLink%>"></iframe></td></tr></table></div>
       <div class="notice_content">
 
 <br>

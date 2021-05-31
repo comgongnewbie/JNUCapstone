@@ -11,9 +11,8 @@ const signupBtn = document.querySelector("#button");
 
 signupBtn.addEventListener("click", signup);
 
-console.log({category});
+
 function signup(){
-    console.log(category);
     if(!id.value) return alert("아이디를 입력해주세요!");
     if(!password.value) return alert("비밀번호를 입력해주세요!");
     if(password.value !== passwordcheck.value) return alert("비밀번호가 비밀번호 확인과 일치하지 않습니다!");

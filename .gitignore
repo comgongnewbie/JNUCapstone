@@ -1,3 +1,6 @@
 **node_modules
 **config
 **/app/src/models
+**_pycache__
+**db.py
+**.vscode
