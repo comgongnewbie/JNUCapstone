@@ -2,8 +2,8 @@
 //모듈
 const express = require("express");
 const bodyParser = require("body-parser");
-const app = express();
 const home = require("./src/routes/home");
+const app = express();
 
 
 app.set("views", "./src/views");
