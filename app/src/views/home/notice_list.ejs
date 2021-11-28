@@ -144,7 +144,7 @@
 
   <div class="notice_list">
     <% for(var i=0; i<post.length; i++) { %>
-    <a id="content" href="/notice_list/content?category=<%=category%>&num=<%=post[i].num%>"><button type="button"><strong style=" width: 360px; font-size: 17px; line-height: 1.4em; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; word-wrap: break-word; text-overflow: ellipsis;"><%=post[i].title%></strong></button><p id="span">작성일 : <%=post[i].write_date%>&nbsp;&nbsp;  조회수 : <%=post[i].views%></p></a>
+    <a id="content" href="/notice_list/content?category=<%=category%>&num=<%=post[i].num%>"><button type="button"><strong style=" width: 283px; font-size: 17px; line-height: 1.4em; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; word-wrap: break-word; text-overflow: ellipsis;"><%=post[i].title%></strong></button><p id="span">작성일 : <%=post[i].write_date%>&nbsp;&nbsp;  조회수 : <%=post[i].views%></p></a>
     <% if((i+1)%3==0) {%> </div><div class="notice_list"> <% } %>
     <% } %>
   </div>
